@@ -84,13 +84,7 @@ const MobileNavbar: React.FC<{
 
             <Popover trigger={'click'} placement={'bottom-start'}>
               <PopoverTrigger>
-                <Box
-                  as="a"
-                  _hover={{
-                    textDecoration: 'none',
-                  }}
-                  fontSize={'lg'}
-                >
+                <Box fontSize={'lg'}>
                   Document Preparation <ChevronDownIcon />
                 </Box>
               </PopoverTrigger>
@@ -112,7 +106,7 @@ const MobileNavbar: React.FC<{
         {login ? (
           <Popover trigger={'click'}>
             <PopoverTrigger>
-              <Button color={'black'} bg={'scholee.400'} onClick={toggleNavbar}>
+              <Button color={'white'} bg={'primary.300'} onClick={toggleNavbar}>
                 Sukmana
               </Button>
             </PopoverTrigger>
@@ -123,7 +117,7 @@ const MobileNavbar: React.FC<{
             </PopoverContent>
           </Popover>
         ) : (
-          <Button color={'black'} bg={'scholee.400'} onClick={toggleNavbar}>
+          <Button color={'white'} bg={'primary.300'} onClick={toggleNavbar}>
             Login
           </Button>
         )}

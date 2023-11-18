@@ -7,29 +7,27 @@ import {
   Th,
   Thead,
   Tr,
-  Icon,
   Text,
   Stack,
 } from '@chakra-ui/react'
 
-import { BsBookmarkFill } from 'react-icons/bs'
 import Pagination from '../sections/Pagination'
 import SearchButton from '../sections/SearchButton'
 import CoverageSlider from '../sections/CoverageSlider'
 
-const ScholarshipsList: React.FC = () => {
+const BookmarkList: React.FC = () => {
   return (
     <Stack direction={'column'} align={'center'}>
       <SearchButton />
       <CoverageSlider />
-      <ScholarshipTable />
+      <BookmarkTable />
       <Pagination />
     </Stack>
   )
 }
 
-const ScholarshipTable: React.FC = () => {
-  const scholarshipData = Array.from({ length: 5 }, (_, index) => index) // Create an array with 10 elements
+const BookmarkTable: React.FC = () => {
+  const bookmarkData = Array.from({ length: 3 }, (_, index) => index) // Create an array with 10 elements
   return (
     <Table size="lg" variant="striped" w="90%">
       <Thead textColor={'white'}>
@@ -57,15 +55,15 @@ const ScholarshipTable: React.FC = () => {
         </Tr>
       </Thead>
       <Tbody>
-        {scholarshipData.map((index) => (
-          <ScholarshipData key={index} />
+        {bookmarkData.map((index) => (
+          <BookmarkData key={index} />
         ))}
       </Tbody>
     </Table>
   )
 }
 
-const ScholarshipData: React.FC = () => {
+const BookmarkData: React.FC = () => {
   return (
     <Tr>
       <Td>
@@ -80,12 +78,10 @@ const ScholarshipData: React.FC = () => {
         <Button mr={10} bg={'primary.100'}>
           View More
         </Button>
-        <Button bg={'primary.100'}>
-          <Icon as={BsBookmarkFill} />
-        </Button>
+        <Button bg={'primary.100'}>Remove Bookmark</Button>
       </Td>
     </Tr>
   )
 }
 
-export default ScholarshipsList
+export default BookmarkList

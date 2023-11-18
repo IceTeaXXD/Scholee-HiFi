@@ -15,6 +15,7 @@ import { ChevronDownIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 
 import logo from '../../assets/logo.svg'
+import { Link } from 'react-router-dom'
 
 const Navbar: React.FC<{ login: boolean }> = ({ login }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -78,9 +79,21 @@ const MobileNavbar: React.FC<{
 
         {login ? (
           <>
-            <NavItems item="Dashboard" />
-            <NavItems item="Scholarships" />
-            <NavItems item="Bookmarks" />
+            <Link to="/dashboard">
+              <Button>
+                <NavItems item="Dashboard" />
+              </Button>
+            </Link>
+            <Link to="/scholarships">
+              <Button>
+                <NavItems item="Scholarships" />
+              </Button>
+            </Link>
+            <Link to="/bookmarks">
+              <Button>
+                <NavItems item="Bookmarks" />
+              </Button>
+            </Link>
 
             <Popover trigger={'click'} placement={'bottom-start'}>
               <PopoverTrigger>
@@ -136,15 +149,29 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
       display={{ base: 'none', md: 'flex' }}
     >
       <Flex>
-        <Image src={logo} alt={''} width={'15'} height={'10'} />
+        <Link to="/">
+          <Image src={logo} alt={''} width={'15'} height={'10'} />
+        </Link>
       </Flex>
       <Flex flex={{ base: 1, md: 'auto' }}>
         <Stack direction={'row'} spacing={10} ml={4}>
           {login ? (
             <>
-              <NavItems item="Dashboard" />
-              <NavItems item="Scholarships" />
-              <NavItems item="Bookmarks" />
+              <Link to="/dashboard">
+                <Button>
+                  <NavItems item="Dashboard" />
+                </Button>
+              </Link>
+              <Link to="/scholarships">
+                <Button>
+                  <NavItems item="Scholarships" />
+                </Button>
+              </Link>
+              <Link to="/bookmarks">
+                <Button>
+                  <NavItems item="Bookmarks" />
+                </Button>
+              </Link>
 
               <Box>
                 <Popover trigger={'click'} placement={'bottom-start'}>
@@ -187,7 +214,9 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
             </PopoverTrigger>
             <PopoverContent p={4}>
               <Stack spacing={5}>
-                <Text>View Profile</Text>
+                <Link to="/profile">
+                  <Text>View Profile</Text>
+                </Link>
               </Stack>
             </PopoverContent>
           </Popover>

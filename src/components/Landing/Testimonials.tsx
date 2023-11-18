@@ -18,7 +18,7 @@ interface Props {
 const Testimonial = (props: Props) => {
   const { children } = props
 
-  return <Box>{children}</Box>
+  return <Box maxW={'md'}>{children}</Box>
 }
 
 const TestimonialContent = (props: Props) => {

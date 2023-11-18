@@ -5,7 +5,7 @@ import { HStack } from '@chakra-ui/layout'
 
 const Pagination: React.FC = () => {
   return (
-    <HStack mt={4} spacing={4}>
+    <HStack mt={4} spacing={4} align={'center'} justify={'center'}>
       <Button disabled>
         <ChevronLeftIcon />
       </Button>

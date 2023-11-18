@@ -1,12 +1,16 @@
-import { Box } from '@chakra-ui/react'
-import BookmarkList from '../components/layouts/BookmarkList'
+import { BookmarkTable } from '../components/Bookmarks/Bookmarks'
+import SearchButton from '../components/Scholarships/SearchButton'
+import CoverageSlider from '../components/Scholarships/CoverageSlider'
+import Pagination from '../components/Scholarships/Pagination'
+import Layout from '../components/Layout'
 
-const BookmarksPage: React.FC = () => {
+export default function Bookmarks() {
   return (
-    <Box p={'5'}>
-      <BookmarkList />
-    </Box>
+    <Layout>
+      <SearchButton />
+      <CoverageSlider />
+      <BookmarkTable />
+      <Pagination />
+    </Layout>
   )
 }
-
-export default BookmarksPage

@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Stack, Box, Text } from '@chakra-ui/react'
 import {
   Slider,
   SliderTrack,
@@ -10,7 +10,7 @@ import { useState } from 'react'
 const CoverageSlider: React.FC = () => {
   const [coverage, setCoverage] = useState(50)
   return (
-    <>
+    <Stack align={'center'}>
       <Slider
         w="50%"
         defaultValue={coverage}
@@ -28,7 +28,7 @@ const CoverageSlider: React.FC = () => {
         <SliderThumb boxSize={6} />
       </Slider>
       <Text>Coverage: ${coverage}</Text>
-    </>
+    </Stack>
   )
 }
 

@@ -1,5 +1,5 @@
 import { SearchIcon } from '@chakra-ui/icons'
-import { Box, Icon, Input } from '@chakra-ui/react'
+import { Icon, Input, Stack } from '@chakra-ui/react'
 import { useState } from 'react'
 
 const SearchButton: React.FC = () => {
@@ -14,7 +14,7 @@ const SearchButton: React.FC = () => {
   }
 
   return (
-    <Box>
+    <Stack align={'center'}>
       {!isSearching ? (
         <Icon
           as={SearchIcon}
@@ -30,7 +30,7 @@ const SearchButton: React.FC = () => {
           autoFocus
         />
       )}
-    </Box>
+    </Stack>
   )
 }
 

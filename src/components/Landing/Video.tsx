@@ -32,8 +32,8 @@ export default function Video() {
           w={'full'}
         >
           <Blob
-            w={'150%'}
-            h={'150%'}
+            w={'100%'}
+            h={'100%'}
             position={'absolute'}
             top={'-20%'}
             left={0}
@@ -73,11 +73,7 @@ export default function Video() {
           </Box>
         </Flex>
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-          <Heading
-            lineHeight={1.1}
-            fontWeight={600}
-            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-          >
+          <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
             <Text
               as={'span'}
               position={'relative'}
@@ -91,6 +87,7 @@ export default function Video() {
                 bg: 'red.400',
                 zIndex: -1,
               }}
+              color={'primary.200'}
             >
               First integrated scholarship portal in Indonesia
             </Text>

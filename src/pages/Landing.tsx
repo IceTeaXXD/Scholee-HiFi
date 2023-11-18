@@ -1,16 +1,14 @@
-import LandingLayout from '../components/layouts/LandingLayout'
-import Hero from '../components/sections/Hero'
-import Video from '../components/sections/Video'
-import Testimonials from '../components/sections/Testimonials'
+import Layout from '../components/Layout'
+import Hero from '../components/Landing/Hero'
+import Video from '../components/Landing/Video'
+import Testimonials from '../components/Landing/Testimonials'
 
 export default function Landing() {
   return (
-    <>
-      <LandingLayout>
-        <Hero />
-        <Video />
-        <Testimonials />
-      </LandingLayout>
-    </>
+    <Layout>
+      <Hero />
+      <Video />
+      <Testimonials />
+    </Layout>
   )
 }

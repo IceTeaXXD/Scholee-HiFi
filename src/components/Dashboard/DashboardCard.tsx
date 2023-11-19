@@ -57,7 +57,7 @@ export const DashboardCard: React.FC = () => {
     return (
         <Box padding={{ base: "6", md: "8" }} maxWidth="95vw" overflow="hidden" bg={"primary.100"} borderRadius="md">
             <Heading as="h3" size="lg" mb="4" textAlign={"center"}>
-                {auth.role === 'admin' ? 'Open Scholarships' : 'You have 6 Scholarships'}
+                {auth.role === 'admin' ? 'You have 6 Scholarships' : 'Open Scholarships'}
             </Heading>
             <Flex alignItems="center" direction={{ base: "column", md: "row" }}>
                 <IconButton

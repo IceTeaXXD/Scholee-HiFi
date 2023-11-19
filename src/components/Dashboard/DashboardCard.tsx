@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Flex, Heading, Text, IconButton, Button, Card, CardBody, CardFooter, useBreakpointValue } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import useAuth from "../../hooks/useAuth";
 
 const cards = [
     {
@@ -35,6 +36,7 @@ const cards = [
     },
 ];
 export const DashboardCard: React.FC = () => {
+    const {auth} = useAuth()
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrev = () => {
@@ -55,7 +57,7 @@ export const DashboardCard: React.FC = () => {
     return (
         <Box padding={{ base: "6", md: "8" }} maxWidth="95vw" overflow="hidden" bg={"primary.100"} borderRadius="md">
             <Heading as="h3" size="lg" mb="4" textAlign={"center"}>
-                Open Scholarships
+                {auth.role === 'admin' ? 'Open Scholarships' : 'You have 6 Scholarships'}
             </Heading>
             <Flex alignItems="center" direction={{ base: "column", md: "row" }}>
                 <IconButton

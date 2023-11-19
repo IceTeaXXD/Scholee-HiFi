@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
+import useAuth from "../hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
 import {
     Flex,
@@ -19,8 +21,9 @@ import {
 import { Link } from "react-router-dom"
 import { FaSun, FaMoon } from "react-icons/fa"
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
+
 const Login = () => {
-    // const {handleLogin} = useAuth()
+    const { auth, setAuth } : any = useAuth()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
@@ -29,9 +32,22 @@ const Login = () => {
     const formBackground = useColorModeValue("white", "gray.800")
     const buttonColor = useColorModeValue("gray.800", "white")
 
+    const navigate = useNavigate()
     const handlePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
+
+    const handleSubmit = (e : any) => {
+        e.preventDefault();
+        if (email === 'user@user.com' && password === "password") {
+            setAuth({ email: email, password: password, role: "user" });
+            navigate("/dashboard")
+        } else if (email === 'admin@admin.com' && password === "password") {
+            setAuth({ email: email, password: password, role: "admin" });
+            navigate("/dashboard")
+        }
+        
+    };
     return (
         <motion.div
             initial={{ opacity: 0, y: -50 }}
@@ -99,8 +115,9 @@ const Login = () => {
                                 </InputRightElement>
                             </InputGroup>
                         </FormControl>
-                        <Link to="/dashboard">
+                        <form onSubmit={handleSubmit}>
                             <Button
+                                type="submit"
                                 bg={buttonColor}
                                 color={formBackground}
                                 _hover={{ bg: "gray.600", color: "gray.200" }}
@@ -109,7 +126,7 @@ const Login = () => {
                             >
                                 Log In
                             </Button>
-                        </Link>
+                        </form>
                         <Box position="absolute" top="2" right="2">
                             <IconButton
                                 aria-label="Toggle Dark Mode"

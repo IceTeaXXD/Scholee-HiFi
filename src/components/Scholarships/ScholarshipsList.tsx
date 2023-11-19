@@ -11,9 +11,12 @@ import {
   Text,
   Stack,
   Center,
+  useDisclosure,
 } from '@chakra-ui/react'
 
 import { BsBookmarkFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import BookmarkModal from '../Bookmarks/BookmarkModal'
 
 export const ScholarshipTable: React.FC = () => {
   const scholarshipData = Array.from({ length: 7 }, (_, index) => index) // Create an array with 10 elements
@@ -57,6 +60,7 @@ export const ScholarshipTable: React.FC = () => {
 }
 
 const ScholarshipData: React.FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Tr>
       <Td>
@@ -69,12 +73,16 @@ const ScholarshipData: React.FC = () => {
       <Td>Kuliah, Manajemen, Basis Data</Td>
       <Td>
         <Stack direction={'row'} spacing={4}>
-          <Button mr={10} bg={'primary.100'}>
-            View More
-          </Button>
-          <Button bg={'primary.100'}>
+          <Link to="/scholarships/viewmore">
+            <Button mr={10} bg={'primary.100'}>
+              View More
+            </Button>
+          </Link>
+          <Button bg={'primary.100'} onClick={onOpen}>
             <Icon as={BsBookmarkFill} />
           </Button>
+
+          {isOpen && <BookmarkModal open={isOpen} onClose={onClose} />}
         </Stack>
       </Td>
     </Tr>

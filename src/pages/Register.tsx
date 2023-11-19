@@ -18,7 +18,7 @@ import {
   Alert,
   AlertIcon
 } from "@chakra-ui/react"
-import { ViewIcon, ViewOffIcon, WarningIcon } from "@chakra-ui/icons"
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
 import { Link } from "react-router-dom"
 import { FaSun, FaMoon } from "react-icons/fa"
 

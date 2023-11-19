@@ -23,7 +23,6 @@ const Login = () => {
     // const {handleLogin} = useAuth()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [errMsg, setErrMsg] = useState("")
     const [showPassword, setShowPassword] = useState(false)
 
     const { colorMode, toggleColorMode } = useColorMode()
@@ -65,16 +64,6 @@ const Login = () => {
                 >
                     <Box p={12} borderRadius={8} w="100%">
                         <Heading mb={6}>Log In</Heading>
-                        <Box
-                            color="red.500"
-                            display={errMsg ? "block" : "none"}
-                            mb={3}
-                            fontWeight="bold"
-                            fontSize="sm"
-                            aria-live="assertive"
-                        >
-                            {errMsg}
-                        </Box>
                         <FormControl variant="floating" id="email" isRequired>
                             <Input
                                 placeholder=" "

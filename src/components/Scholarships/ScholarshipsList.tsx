@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 
 import { BsBookmarkFill } from 'react-icons/bs'
+import useAuth from '../../hooks/useAuth'
 
 export const ScholarshipTable: React.FC = () => {
   const scholarshipData = Array.from({ length: 7 }, (_, index) => index) // Create an array with 10 elements
@@ -57,6 +58,7 @@ export const ScholarshipTable: React.FC = () => {
 }
 
 const ScholarshipData: React.FC = () => {
+  const { auth } = useAuth()
   return (
     <Tr>
       <Td>
@@ -70,10 +72,10 @@ const ScholarshipData: React.FC = () => {
       <Td>
         <Stack direction={'row'} spacing={4}>
           <Button mr={10} bg={'primary.100'}>
-            View More
+            {auth.role === 'admin' ? 'View More' : 'Edit'}
           </Button>
-          <Button bg={'primary.100'}>
-            <Icon as={BsBookmarkFill} />
+          <Button bg={auth.role === 'admin' ? 'red' : 'primary.100'} color={auth.role === 'admin' ? 'white' : 'black'}>
+            {auth.role === 'admin' ? 'Delete' : <Icon as={BsBookmarkFill} />}
           </Button>
         </Stack>
       </Td>

@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import ReviewDocument from './pages/ReviewDocument'
+import AddScholarship from './pages/AddScholarship'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             path="/scholarships/viewmore"
             element={<ScholarshipViewMore />}
           />
+          <Route path="/scholarships/add" element={<AddScholarship />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />

@@ -6,6 +6,8 @@ import ScholarshipViewMore from './pages/ScholarshipViewMore'
 import Bookmarks from './pages/Bookmarks'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Dashboard from './pages/Dashboard'
+import ReviewDocument from './pages/ReviewDocument'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/review" element={<ReviewDocument />} />
         </Routes>
       </Router>
     </>

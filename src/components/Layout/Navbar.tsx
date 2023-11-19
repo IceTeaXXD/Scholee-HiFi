@@ -12,18 +12,24 @@ import {
   Collapse,
 } from '@chakra-ui/react'
 import { ChevronDownIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
 
-const Navbar: React.FC<{ login: boolean }> = ({ login }) => {
+const Navbar: React.FC<{}> = () => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const [login, setIsLogin] = useState(false)
+  const { auth } = useAuth()
   const toggleNavbar = () => {
     setIsOpen(!isOpen)
   }
-
+  useEffect(() => {
+    if (auth.role) {
+      setIsLogin(true)
+    }
+  }, [])
   return (
     <>
       <MobileNavbarButton isOpen={isOpen} toggleNavbar={toggleNavbar} />
@@ -54,6 +60,7 @@ const MobileNavbar: React.FC<{
   login: boolean
   toggleNavbar: () => void
 }> = ({ isOpen, login, toggleNavbar }) => {
+  const { auth } = useAuth()
   return (
     <Collapse in={isOpen} animateOpacity>
       <Stack
@@ -79,36 +86,65 @@ const MobileNavbar: React.FC<{
 
         {login ? (
           <>
-            <Link to="/dashboard">
-              <Button variant="link">
-                <NavItems item="Dashboard" />
-              </Button>
-            </Link>
-            <Link to="/scholarships">
-              <Button variant="link">
-                <NavItems item="Scholarships" />
-              </Button>
-            </Link>
-            <Link to="/bookmarks">
-              <Button variant="link">
-                <NavItems item="Bookmarks" />
-              </Button>
-            </Link>
+            {auth.role === ' admin' ? (
+              <>
+                <Link to="/dashboard">
+                  <Button variant="link">
+                    <NavItems item="Dashboard" />
+                  </Button>
+                </Link>
+                <Link to="/scholarships/add">
+                  <Button variant="link">
+                    <NavItems item="Add Scholarship" />
+                  </Button>
+                </Link>
+                <Link to="/scholarships">
+                  <Button variant="link">
+                    <NavItems item="Scholarships" />
+                  </Button>
+                </Link>
+                <Link to="/aboutus">
+                  <Button variant="link">
+                    <NavItems item="About Us" />
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/dashboard">
+                  <Button variant="link">
+                    <NavItems item="Dashboard" />
+                  </Button>
+                </Link>
+                <Link to="/scholarships">
+                  <Button variant="link">
+                    <NavItems item="Scholarships" />
+                  </Button>
+                </Link>
+                <Link to="/bookmarks">
+                  <Button variant="link">
+                    <NavItems item="Bookmarks" />
+                  </Button>
+                </Link>
 
-            <Popover trigger={'click'} placement={'bottom-start'}>
-              <PopoverTrigger>
-                <Box fontSize={'lg'}>
-                  Document Preparation <ChevronDownIcon />
-                </Box>
-              </PopoverTrigger>
+                <Popover trigger={'click'} placement={'bottom-start'}>
+                  <PopoverTrigger>
+                    <Box fontSize={'lg'}>
+                      Document Preparation <ChevronDownIcon />
+                    </Box>
+                  </PopoverTrigger>
 
-              <PopoverContent p={4}>
-                <Stack spacing={5}>
-                  <Text>Upload Document</Text>
-                  <Text>Document Review</Text>
-                </Stack>
-              </PopoverContent>
-            </Popover>
+                  <PopoverContent p={4}>
+                    <Stack spacing={5}>
+                      <Text>Upload Document</Text>
+                      <Link to="/review">
+                        <Text>Document Review</Text>
+                      </Link>
+                    </Stack>
+                  </PopoverContent>
+                </Popover>
+              </>
+            )}
           </>
         ) : (
           <NavItems item="Home" />
@@ -141,6 +177,7 @@ const MobileNavbar: React.FC<{
 }
 
 const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
+  const { auth } = useAuth()
   return (
     <Stack
       direction={'row'}
@@ -158,38 +195,67 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
         <Stack direction={'row'} spacing={10} ml={4}>
           {login ? (
             <>
-              <Link to="/dashboard">
-                <Button variant="link">
-                  <NavItems item="Dashboard" />
-                </Button>
-              </Link>
-              <Link to="/scholarships">
-                <Button variant="link">
-                  <NavItems item="Scholarships" />
-                </Button>
-              </Link>
-              <Link to="/bookmarks">
-                <Button variant="link">
-                  <NavItems item="Bookmarks" />
-                </Button>
-              </Link>
+              {auth.role === 'admin' ? (
+                <>
+                  <Link to="/dashboard">
+                    <Button variant="link">
+                      <NavItems item="Dashboard" />
+                    </Button>
+                  </Link>
+                  <Link to="/scholarships/add">
+                    <Button variant="link">
+                      <NavItems item="Add Scholarship" />
+                    </Button>
+                  </Link>
+                  <Link to="/scholarships">
+                    <Button variant="link">
+                      <NavItems item="Scholarships" />
+                    </Button>
+                  </Link>
+                  <Link to="/aboutus">
+                    <Button variant="link">
+                      <NavItems item="About Us" />
+                    </Button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/dashboard">
+                    <Button variant="link">
+                      <NavItems item="Dashboard" />
+                    </Button>
+                  </Link>
+                  <Link to="/scholarships">
+                    <Button variant="link">
+                      <NavItems item="Scholarships" />
+                    </Button>
+                  </Link>
+                  <Link to="/bookmarks">
+                    <Button variant="link">
+                      <NavItems item="Bookmarks" />
+                    </Button>
+                  </Link>
 
-              <Box>
-                <Popover trigger={'click'} placement={'bottom-start'}>
-                  <PopoverTrigger>
-                    <Box fontSize={'lg'}>
-                      Document Preparation <ChevronDownIcon />
-                    </Box>
-                  </PopoverTrigger>
+                  <Box>
+                    <Popover trigger={'click'} placement={'bottom-start'}>
+                      <PopoverTrigger>
+                        <Box fontSize={'lg'}>
+                          Document Preparation <ChevronDownIcon />
+                        </Box>
+                      </PopoverTrigger>
 
-                  <PopoverContent p={4}>
-                    <Stack spacing={5}>
-                      <Text>Upload Document</Text>
-                      <Text>Document Review</Text>
-                    </Stack>
-                  </PopoverContent>
-                </Popover>
-              </Box>
+                      <PopoverContent p={4}>
+                        <Stack spacing={5}>
+                          <Text>Upload Document</Text>
+                          <Link to="/review">
+                            <Text>Document Review</Text>
+                          </Link>
+                        </Stack>
+                      </PopoverContent>
+                    </Popover>
+                  </Box>
+                </>
+              )}
             </>
           ) : (
             <>
@@ -197,7 +263,7 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
             </>
           )}
 
-          <NavItems item="About Us" />
+          {/* <NavItems item="About Us" /> */}
         </Stack>
       </Flex>
 
@@ -219,14 +285,14 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
                 <Link to="/profile">
                   <Text>View Profile</Text>
                 </Link>
-                <Link to="#">
+                <Link to="/login">
                   <Text>Logout</Text>
                 </Link>
               </Stack>
             </PopoverContent>
           </Popover>
         ) : (
-          <Link to={"/login"}>
+          <Link to={'/login'}>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               color={'white'}

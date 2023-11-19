@@ -17,6 +17,7 @@ import {
 import { BsBookmarkFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import BookmarkModal from '../Bookmarks/BookmarkModal'
+import useAuth from '../../hooks/useAuth'
 
 export const ScholarshipTable: React.FC = () => {
   const scholarshipData = Array.from({ length: 7 }, (_, index) => index) // Create an array with 10 elements
@@ -61,6 +62,7 @@ export const ScholarshipTable: React.FC = () => {
 
 const ScholarshipData: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { auth } = useAuth()
   return (
     <Tr>
       <Td>
@@ -80,6 +82,15 @@ const ScholarshipData: React.FC = () => {
           </Link>
           <Button bg={'primary.100'} onClick={onOpen}>
             <Icon as={BsBookmarkFill} />
+          </Button>
+          <Button mr={10} bg={'primary.100'}>
+            {auth.role === 'admin' ? 'View More' : 'Edit'}
+          </Button>
+          <Button
+            bg={auth.role === 'admin' ? 'red' : 'primary.100'}
+            color={auth.role === 'admin' ? 'white' : 'black'}
+          >
+            {auth.role === 'admin' ? 'Delete' : <Icon as={BsBookmarkFill} />}
           </Button>
 
           {isOpen && <BookmarkModal open={isOpen} onClose={onClose} />}

@@ -75,23 +75,27 @@ const ScholarshipData: React.FC = () => {
       <Td>Kuliah, Manajemen, Basis Data</Td>
       <Td>
         <Stack direction={'row'} spacing={4}>
-          <Link to="/scholarships/viewmore">
-            <Button mr={10} bg={'primary.100'}>
-              View More
-            </Button>
-          </Link>
-          <Button bg={'primary.100'} onClick={onOpen}>
-            <Icon as={BsBookmarkFill} />
-          </Button>
-          <Button mr={10} bg={'primary.100'}>
-            {auth.role === 'admin' ? 'View More' : 'Edit'}
-          </Button>
-          <Button
-            bg={auth.role === 'admin' ? 'red' : 'primary.100'}
-            color={auth.role === 'admin' ? 'white' : 'black'}
-          >
-            {auth.role === 'admin' ? 'Delete' : <Icon as={BsBookmarkFill} />}
-          </Button>
+          {auth.role === 'user' ? (
+            <>
+              <Link to="/scholarships/viewmore">
+                <Button mr={10} bg={'primary.100'}>
+                  View More
+                </Button>
+              </Link>
+              <Button bg={'primary.100'} onClick={onOpen}>
+                <Icon as={BsBookmarkFill} />
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button mr={10} bg={'primary.100'}>
+                Edit
+              </Button>
+              <Button bg={'red'} color={'white'}>
+                Delete
+              </Button>
+            </>
+          )}
 
           {isOpen && <BookmarkModal open={isOpen} onClose={onClose} />}
         </Stack>

@@ -86,7 +86,7 @@ const MobileNavbar: React.FC<{
 
         {login ? (
           <>
-            {auth.role === ' admin' ? (
+            {auth.role === 'admin' ? (
               <>
                 <Link to="/dashboard">
                   <Button variant="link">

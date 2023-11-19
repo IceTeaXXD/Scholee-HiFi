@@ -80,17 +80,17 @@ const MobileNavbar: React.FC<{
         {login ? (
           <>
             <Link to="/dashboard">
-              <Button>
+              <Button variant="link">
                 <NavItems item="Dashboard" />
               </Button>
             </Link>
             <Link to="/scholarships">
-              <Button>
+              <Button variant="link">
                 <NavItems item="Scholarships" />
               </Button>
             </Link>
             <Link to="/bookmarks">
-              <Button>
+              <Button variant="link">
                 <NavItems item="Bookmarks" />
               </Button>
             </Link>
@@ -121,6 +121,7 @@ const MobileNavbar: React.FC<{
             <PopoverTrigger>
               <Button color={'white'} bg={'primary.300'} onClick={toggleNavbar}>
                 Sukmana
+                <ChevronDownIcon />
               </Button>
             </PopoverTrigger>
             <PopoverContent p={4}>
@@ -158,17 +159,17 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
           {login ? (
             <>
               <Link to="/dashboard">
-                <Button>
+                <Button variant="link">
                   <NavItems item="Dashboard" />
                 </Button>
               </Link>
               <Link to="/scholarships">
-                <Button>
+                <Button variant="link">
                   <NavItems item="Scholarships" />
                 </Button>
               </Link>
               <Link to="/bookmarks">
-                <Button>
+                <Button variant="link">
                   <NavItems item="Bookmarks" />
                 </Button>
               </Link>
@@ -210,12 +211,16 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
                 bg={'primary.300'}
               >
                 Sukmana
+                <ChevronDownIcon />
               </Button>
             </PopoverTrigger>
             <PopoverContent p={4}>
               <Stack spacing={5}>
                 <Link to="/profile">
                   <Text>View Profile</Text>
+                </Link>
+                <Link to="#">
+                  <Text>Logout</Text>
                 </Link>
               </Stack>
             </PopoverContent>

@@ -27,6 +27,7 @@ const SearchButton: React.FC = () => {
           placeholder="Search..."
           paddingRight="2rem"
           onBlur={handleCloseClick}
+          width={'50%'}
           autoFocus
         />
       )}

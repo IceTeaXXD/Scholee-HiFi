@@ -9,6 +9,7 @@ import {
   Tr,
   Text,
   Stack,
+  Center,
 } from '@chakra-ui/react'
 
 export const BookmarkTable: React.FC = () => {
@@ -31,12 +32,14 @@ export const BookmarkTable: React.FC = () => {
               <Text color={'white'}>Types</Text>
             </Th>
             <Th>
-              <Select color={'black'} bg="gray.100">
-                <option value="5">5</option>
-                <option value="5">10</option>
-                <option value="5">15</option>
-                <option value="5">20</option>
-              </Select>
+              <Center>
+                <Select color={'black'} bg="gray.100" w={'50%'}>
+                  <option value="5">5</option>
+                  <option value="5">10</option>
+                  <option value="5">15</option>
+                  <option value="5">20</option>
+                </Select>
+              </Center>
             </Th>
           </Tr>
         </Thead>
@@ -62,10 +65,12 @@ const BookmarkData: React.FC = () => {
       <Td>$3,140.00</Td>
       <Td>Kuliah, Manajemen, Basis Data</Td>
       <Td>
-        <Button mr={10} bg={'primary.100'}>
-          View More
-        </Button>
-        <Button bg={'primary.100'}>Remove Bookmark</Button>
+        <Stack direction={'row'} spacing={'4'}>
+          <Button mr={10} bg={'primary.100'}>
+            View More
+          </Button>
+          <Button bg={'primary.100'}>Remove Bookmark</Button>
+        </Stack>
       </Td>
     </Tr>
   )

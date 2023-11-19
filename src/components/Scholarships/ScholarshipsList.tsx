@@ -10,6 +10,7 @@ import {
   Icon,
   Text,
   Stack,
+  Center,
 } from '@chakra-ui/react'
 
 import { BsBookmarkFill } from 'react-icons/bs'
@@ -34,12 +35,14 @@ export const ScholarshipTable: React.FC = () => {
               <Text color={'white'}>Types</Text>
             </Th>
             <Th>
-              <Select color={'black'} bg="gray.100">
-                <option value="5">5</option>
-                <option value="5">10</option>
-                <option value="5">15</option>
-                <option value="5">20</option>
-              </Select>
+              <Center>
+                <Select color={'black'} bg="gray.100" w={'50%'}>
+                  <option value="5">5</option>
+                  <option value="5">10</option>
+                  <option value="5">15</option>
+                  <option value="5">20</option>
+                </Select>
+              </Center>
             </Th>
           </Tr>
         </Thead>

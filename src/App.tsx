@@ -4,6 +4,7 @@ import Profile from './pages/Profile'
 import Scholarships from './pages/Scholarships'
 import ScholarshipViewMore from './pages/ScholarshipViewMore'
 import Bookmarks from './pages/Bookmarks'
+import Login from './pages/Login'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           />
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>

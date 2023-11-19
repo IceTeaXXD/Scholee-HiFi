@@ -226,13 +226,15 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
             </PopoverContent>
           </Popover>
         ) : (
-          <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            color={'white'}
-            bg={'primary.300'}
-          >
-            Login
-          </Button>
+          <Link to={"/login"}>
+            <Button
+              display={{ base: 'none', md: 'inline-flex' }}
+              color={'white'}
+              bg={'primary.300'}
+            >
+              Login
+            </Button>
+          </Link>
         )}
       </Flex>
     </Stack>

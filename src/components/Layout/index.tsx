@@ -7,7 +7,7 @@ import { Box } from '@chakra-ui/react'
 export default function Layout(props: React.PropsWithChildren) {
   return (
     <Box minH={'100vh'} minW={'100vw'}>
-      <Navbar login={true} />
+      <Navbar login={false} />
       {props.children}
       <Footer />
     </Box>

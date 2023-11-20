@@ -17,7 +17,11 @@ const Add: React.FC = () => {
     <Flex minH={'100vh'} align={'center'} justify={'center'}>
       <Stack spacing={4} w={'full'} maxW={'md'} rounded={'xl'} p={6} my={12}>
         <Heading>Add Beasiswa</Heading>
-        <Box boxShadow={'dark-lg'} rounded={'lg'} p={'30'}>
+        <Box
+          boxShadow={'rgba(0, 0, 0, 0.5) 0px 4px 6px -1px, rgba(0, 0, 0, 0.3) 0px 2px 4px -1px'}
+          rounded={'lg'}
+          p={'30'}
+        >
           <FormControl isRequired>
             <FormLabel>Scholarship Name</FormLabel>
             <Input type="text" />

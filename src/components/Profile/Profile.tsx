@@ -13,7 +13,7 @@ const ProfilePage: React.FC = () => {
   return (
     <Grid
       mt={{ base: '8', md: '150' }}
-      boxShadow={'dark-lg'}
+      boxShadow={'rgba(0, 0, 0, 0.5) 0px 4px 6px -1px, rgba(0, 0, 0, 0.3) 0px 2px 4px -1px'}
       border={100}
       bg={'white'}
       templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}

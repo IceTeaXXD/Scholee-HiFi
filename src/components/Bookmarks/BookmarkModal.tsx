@@ -12,8 +12,8 @@ const BookmarkModal: React.FC<{ open: boolean; onClose: () => void }> = ({
   onClose,
 }) => {
   return (
-    <Modal isOpen={open} onClose={onClose}>
-      <ModalOverlay />
+    <Modal isOpen={open} onClose={onClose} isCentered>
+      <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
       <ModalContent>
         <ModalHeader>Bookmark Success</ModalHeader>
         <ModalCloseButton />

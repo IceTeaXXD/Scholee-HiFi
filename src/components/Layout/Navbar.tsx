@@ -201,42 +201,31 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
               {auth.role === 'admin' ? (
                 <>
                   <Link to="/dashboard">
-                    <Button variant="link">
-                      <NavItems item="Dashboard" />
-                    </Button>
+                    <NavItems item="Dashboard" />
                   </Link>
                   <Link to="/scholarships/add">
-                    <Button variant="link">
-                      <NavItems item="Add Scholarship" />
-                    </Button>
+                    <NavItems item="Add Scholarship" />
                   </Link>
                   <Link to="/scholarships">
-                    <Button variant="link">
-                      <NavItems item="Scholarships" />
-                    </Button>
+                    <NavItems item="Scholarships" />
                   </Link>
                   <Link to="/aboutus">
-                    <Button variant="link">
-                      <NavItems item="About Us" />
-                    </Button>
+                    <NavItems item="About Us" />
                   </Link>
                 </>
               ) : (
                 <>
                   <Link to="/dashboard">
-                    <Button variant="link">
-                      <NavItems item="Dashboard" />
-                    </Button>
+                    <NavItems item="Dashboard" />
                   </Link>
                   <Link to="/scholarships">
-                    <Button variant="link">
-                      <NavItems item="Scholarships" />
-                    </Button>
+                    <NavItems item="Scholarships" />
                   </Link>
                   <Link to="/bookmarks">
-                    <Button variant="link">
-                      <NavItems item="Bookmarks" />
-                    </Button>
+                    <NavItems item="Bookmarks" />
+                  </Link>
+                  <Link to="/aboutus">
+                    <NavItems item="About Us" />
                   </Link>
 
                   <Box>
@@ -264,11 +253,14 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
             </>
           ) : (
             <>
-              <NavItems item="Home" />
+              <Link to="/">
+                <NavItems item="Home" />
+              </Link>
+              <Link to="/aboutus">
+                <NavItems item="About Us" />
+              </Link>
             </>
           )}
-
-          {/* <NavItems item="About Us" /> */}
         </Stack>
       </Flex>
 

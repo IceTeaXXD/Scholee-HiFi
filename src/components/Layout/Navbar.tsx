@@ -137,7 +137,9 @@ const MobileNavbar: React.FC<{
 
                   <PopoverContent p={4}>
                     <Stack spacing={5}>
-                      <Text>Upload Document</Text>
+                      <Link to="/upload">
+                        <Text>Upload Document</Text>
+                      </Link>
                       <Link to="/review">
                         <Text>Document Review</Text>
                       </Link>
@@ -247,7 +249,9 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
 
                       <PopoverContent p={4}>
                         <Stack spacing={5}>
-                          <Text>Upload Document</Text>
+                          <Link to="/upload">
+                            <Text>Upload Document</Text>
+                          </Link>
                           <Link to="/review">
                             <Text>Document Review</Text>
                           </Link>

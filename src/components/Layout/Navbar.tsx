@@ -18,7 +18,7 @@ import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 
-const Navbar: React.FC<{}> = () => {
+const Navbar: React.FC<object> = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [login, setIsLogin] = useState(false)
   const { auth } = useAuth()
@@ -29,6 +29,7 @@ const Navbar: React.FC<{}> = () => {
     if (auth.role) {
       setIsLogin(true)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>
@@ -86,7 +87,7 @@ const MobileNavbar: React.FC<{
 
         {login ? (
           <>
-            {auth.role === ' admin' ?
+            {auth.role === 'admin' ? (
               <>
                 <Link to="/dashboard">
                   <Button variant="link">
@@ -108,7 +109,8 @@ const MobileNavbar: React.FC<{
                     <NavItems item="About Us" />
                   </Button>
                 </Link>
-              </> :
+              </>
+            ) : (
               <>
                 <Link to="/dashboard">
                   <Button variant="link">
@@ -142,7 +144,8 @@ const MobileNavbar: React.FC<{
                     </Stack>
                   </PopoverContent>
                 </Popover>
-              </>}
+              </>
+            )}
           </>
         ) : (
           <NavItems item="Home" />
@@ -193,7 +196,7 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
         <Stack direction={'row'} spacing={10} ml={4}>
           {login ? (
             <>
-              {auth.role === 'admin' ?
+              {auth.role === 'admin' ? (
                 <>
                   <Link to="/dashboard">
                     <Button variant="link">
@@ -215,7 +218,8 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
                       <NavItems item="About Us" />
                     </Button>
                   </Link>
-                </> :
+                </>
+              ) : (
                 <>
                   <Link to="/dashboard">
                     <Button variant="link">
@@ -251,7 +255,8 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
                       </PopoverContent>
                     </Popover>
                   </Box>
-                </>}
+                </>
+              )}
             </>
           ) : (
             <>
@@ -288,7 +293,7 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
             </PopoverContent>
           </Popover>
         ) : (
-          <Link to={"/login"}>
+          <Link to={'/login'}>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               color={'white'}

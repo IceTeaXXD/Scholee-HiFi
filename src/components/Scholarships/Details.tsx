@@ -1,6 +1,8 @@
-import { Box, Button, Center, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Text, useDisclosure } from '@chakra-ui/react'
+import BookmarkModal from '../Bookmarks/BookmarkModal'
 
 const Details: React.FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Center>
       <Box mt={90} bg={'gray.200'} p={30} w={'80%'} justifyContent={'center'}>
@@ -26,9 +28,16 @@ const Details: React.FC = () => {
           <Text fontSize={'lg'}>Contact Email: terdakwa@if3140.edu</Text>
 
           <Center>
-            <Button size={'lg'} colorScheme={'twitter'} variant={'solid'}>
+            <Button
+              size={'lg'}
+              colorScheme={'twitter'}
+              variant={'solid'}
+              onClick={onOpen}
+            >
               Bookmark
             </Button>
+
+            {isOpen && <BookmarkModal open={isOpen} onClose={onClose} />}
           </Center>
         </Box>
       </Box>

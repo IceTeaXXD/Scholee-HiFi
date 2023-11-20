@@ -27,6 +27,7 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
   const { colorMode, toggleColorMode } = useColorMode()
   const formBackground = useColorModeValue('white', 'gray.800')
@@ -39,10 +40,14 @@ const Login = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    if (email === 'user@user.com' && password === 'password') {
+    if (email === '' || password === '') {
+      setErrorMsg('Please fill all fields')
+    } else if (email === 'user@user.com' && password === 'password') {
+      setErrorMsg('')
       setAuth({ email: email, password: password, role: 'user' })
       navigate('/dashboard')
     } else if (email === 'admin@admin.com' && password === 'password') {
+      setErrorMsg('')
       setAuth({ email: email, password: password, role: 'admin' })
       navigate('/dashboard')
     }
@@ -79,6 +84,7 @@ const Login = () => {
         >
           <Box p={12} borderRadius={8} w="100%">
             <Heading mb={6}>Log In</Heading>
+            <Box color="red"> {errorMsg} </Box>
             <FormControl variant="floating" id="email" isRequired>
               <Input
                 placeholder=" "

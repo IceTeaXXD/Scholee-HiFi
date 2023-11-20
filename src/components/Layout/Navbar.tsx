@@ -154,7 +154,7 @@ const MobileNavbar: React.FC<{
           <Popover trigger={'click'}>
             <PopoverTrigger>
               <Button color={'white'} bg={'primary.300'} onClick={toggleNavbar}>
-                Sukmana
+                Dolores
                 <ChevronDownIcon />
               </Button>
             </PopoverTrigger>
@@ -272,7 +272,7 @@ const DesktopNavbar: React.FC<{ login: boolean }> = ({ login }) => {
                 color={'white'}
                 bg={'primary.300'}
               >
-                Sukmana
+                Dolores
                 <ChevronDownIcon />
               </Button>
             </PopoverTrigger>

@@ -6,7 +6,7 @@ export const DashboardHeading: React.FC = () => {
     return (
         <Box paddingLeft="9" paddingRight="9" paddingTop="10">
             <Heading marginBottom={3}>
-                Hello, Sukmana
+                Hello, Dolores
             </Heading>
             {auth.role === 'admin' ? <></> : <>
                 <Flex justifyContent="space-between">

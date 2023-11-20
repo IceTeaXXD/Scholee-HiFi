@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard'
 import ReviewDocument from './pages/ReviewDocument'
 import AddScholarship from './pages/AddScholarship'
 import AboutUsPage from './pages/AboutUs'
+import UploadDocumentPage from './pages/UploadDocument'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/review" element={<ReviewDocument />} />
           <Route path="/aboutus" element={<AboutUsPage />} />
+          <Route path="/upload" element={<UploadDocumentPage />} />
         </Routes>
       </Router>
     </>

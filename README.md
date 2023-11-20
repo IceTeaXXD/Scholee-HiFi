@@ -10,6 +10,18 @@ jadi ini sebenernya disuruh bikin figma, tapi kita males dan gak bisa, jadinya k
 | 13521007 |      Matthew Mahendra       |
 | 13521024 |         Ahmad Nadil         |
 
+## Accounts
+1. Admin View
+```
+Username: admin@admin.com
+Password: password
+```
+2. User View
+```
+Username: user@user.com
+Password: password
+```
+
 ## Cara jalanin
 
 1. ya liat deploy nya aja sih

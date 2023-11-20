@@ -9,6 +9,7 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import ReviewDocument from './pages/ReviewDocument'
 import AddScholarship from './pages/AddScholarship'
+import AboutUsPage from './pages/AboutUs'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/review" element={<ReviewDocument />} />
+          <Route path="/aboutus" element={<AboutUsPage />} />
         </Routes>
       </Router>
     </>

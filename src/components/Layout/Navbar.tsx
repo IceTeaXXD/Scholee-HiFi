@@ -18,7 +18,7 @@ import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 
-const Navbar: React.FC<{}> = () => {
+const Navbar: React.FC<object> = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [login, setIsLogin] = useState(false)
   const { auth } = useAuth()
@@ -29,6 +29,7 @@ const Navbar: React.FC<{}> = () => {
     if (auth.role) {
       setIsLogin(true)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>

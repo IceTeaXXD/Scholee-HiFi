@@ -1,6 +1,5 @@
 import {
   Button,
-  Select,
   Table,
   Tbody,
   Td,
@@ -9,7 +8,6 @@ import {
   Tr,
   Text,
   Stack,
-  Center,
 } from '@chakra-ui/react'
 
 export const ReviewTable: React.FC = () => {
@@ -34,16 +32,7 @@ export const ReviewTable: React.FC = () => {
             <Th>
               <Text color={'white'}>Comment</Text>
             </Th>
-            <Th>
-              <Center>
-                <Select color={'black'} bg="gray.100" w={'50%'}>
-                  <option value="5">5</option>
-                  <option value="5">10</option>
-                  <option value="5">15</option>
-                  <option value="5">20</option>
-                </Select>
-              </Center>
-            </Th>
+            <Th></Th>
           </Tr>
         </Thead>
         <Tbody>
